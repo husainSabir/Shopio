@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import inventoryApi from '../services/inventoryApi';
 import catalogApi from '../services/catalogApi';
-import type { Inventory, Product, AdjustmentType } from '../types';
+import { type Inventory, type Product, AdjustmentType } from '../types';
 import './Page.css';
 
 interface ProductWithInventory extends Product {
@@ -65,7 +65,7 @@ export default function Inventory() {
     const adjustResponse = await inventoryApi.adjustInventory({
       productId,
       quantity: createData.quantity,
-      type: 'set',
+      type: AdjustmentType.SET,
       reason: createData.reason || 'Initial inventory creation',
     });
 
@@ -101,7 +101,7 @@ export default function Inventory() {
 
     if (response.success) {
       setShowAdjustForm(null);
-      setAdjustData({ quantity: 0, type: 'set', reason: '' });
+      setAdjustData({ quantity: 0, type: AdjustmentType.SET, reason: '' });
       loadInventory();
     } else {
       setError(response.error || 'Failed to adjust inventory');
@@ -452,7 +452,7 @@ export default function Inventory() {
                   className="btn btn-secondary"
                   onClick={() => {
                     setShowAdjustForm(null);
-                    setAdjustData({ quantity: 0, type: 'set', reason: '' });
+                    setAdjustData({ quantity: 0, type: AdjustmentType.SET, reason: '' });
                   }}
                 >
                   Cancel
