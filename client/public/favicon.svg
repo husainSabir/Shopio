@@ -1,0 +1,15 @@
+<svg width="32" height="32" viewBox="0 0 420 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="faviconGradient" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#60a5fa"/>
+      <stop offset="100%" stop-color="#3b82f6"/>
+    </linearGradient>
+  </defs>
+  <rect x="20" y="30" rx="12" ry="12" width="80" height="70" fill="url(#faviconGradient)"/>
+  <path d="M35 30 C35 15, 85 15, 85 30" stroke="#2563eb" stroke-width="6" fill="none"/>
+  <rect x="30" y="40" width="60" height="18" rx="4" fill="#FFFFFF"/>
+  <path d="M30 40 h12 v18 h-12z M42 40 h12 v18 h-12z M54 40 h12 v18 h-12z M66 40 h12 v18 h-12z M78 40 h12 v18 h-12z" fill="#E5E7EB"/>
+  <rect x="50" y="65" width="20" height="25" rx="3" fill="#FFFFFF"/>
+  <text x="120" y="82" font-family="Inter, Segoe UI, Helvetica, Arial, sans-serif" font-size="48" font-weight="600" fill="#60a5fa">Shopio</text>
+</svg>
+
