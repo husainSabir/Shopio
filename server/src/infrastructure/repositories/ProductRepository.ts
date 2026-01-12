@@ -89,11 +89,13 @@ export class ProductRepository implements IProductRepository {
       }
     }
     
+    const price = typeof row.price === 'string' ? parseFloat(row.price) : row.price;
+    
     return new Product(
       row.id,
       row.name,
       row.description,
-      parseFloat(row.price),
+      price,
       row.category,
       row.sku,
       images,

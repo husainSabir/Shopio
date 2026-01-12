@@ -115,6 +115,8 @@ export class OrderRepository implements IOrderRepository {
       ? JSON.parse(row.shipping_address)
       : row.shipping_address;
 
+    const total = typeof row.total === 'string' ? parseFloat(row.total) : row.total;
+
     return new Order(
       row.id,
       items,
@@ -122,7 +124,7 @@ export class OrderRepository implements IOrderRepository {
       row.customer_email,
       shippingAddress,
       row.status as OrderStatus,
-      parseFloat(row.total),
+      total,
       new Date(row.created_at),
       new Date(row.updated_at)
     );
