@@ -69,7 +69,17 @@ export class ProductRepository implements IProductRepository {
     }
   }
 
-  private mapRowToProduct(row: any): Product {
+  private mapRowToProduct(row: {
+    id: string;
+    name: string;
+    description: string;
+    price: number | string;
+    category: string;
+    sku: string;
+    images?: string | string[] | null;
+    created_at: Date | string;
+    updated_at: Date | string;
+  }): Product {
     let images: string[] = [];
     if (row.images) {
       try {

@@ -96,7 +96,17 @@ export class OrderRepository implements IOrderRepository {
     }
   }
 
-  private mapRowToOrder(row: any): Order {
+  private mapRowToOrder(row: {
+    id: string;
+    items: string | OrderItem[];
+    customer_name: string;
+    customer_email: string;
+    shipping_address: string | ShippingAddress;
+    status: string;
+    total: number | string;
+    created_at: Date | string;
+    updated_at: Date | string;
+  }): Order {
     const items: OrderItem[] = typeof row.items === 'string' 
       ? JSON.parse(row.items) 
       : row.items;

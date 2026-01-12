@@ -53,7 +53,13 @@ export class InventoryRepository implements IInventoryRepository {
     return this.mapRowToInventory(result.rows[0]);
   }
 
-  private mapRowToInventory(row: any): Inventory {
+  private mapRowToInventory(row: {
+    product_id: string;
+    quantity: number;
+    low_stock_threshold: number;
+    last_adjustment?: string | object | null;
+    updated_at: Date | string;
+  }): Inventory {
     let lastAdjustment: InventoryAdjustment | undefined;
     if (row.last_adjustment) {
       const adj = typeof row.last_adjustment === 'string' 
